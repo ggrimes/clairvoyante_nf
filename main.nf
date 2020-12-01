@@ -25,7 +25,7 @@ log.info """\
          .stripIndent()
 
 include {
-  clairvoyante;
+  clair;
   } from './modules/clair.nf'
 
 
