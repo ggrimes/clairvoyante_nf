@@ -6,13 +6,12 @@ process clair {
     label 'high_memory'
     publishDir "results/claircalls", mode: 'copy'
     conda '/exports/igmm/eddie/tomlinson-CRC-promethion/analysis/clair/clair-env'
-
     cpus 16
 
     input:
     tuple(val(sampleName), file(bam))
-    path(reference_fa)
-    path(clair)
+    val(reference_fa)
+    val(clair)
     val(model)
     val(threshold)
 

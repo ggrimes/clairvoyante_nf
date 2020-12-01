@@ -35,5 +35,5 @@ Channel
 
 
 workflow {
-  clair(bam_ch,reference_file_path,params.clair,params.model,params.threshold)
+  clair(bam_ch,params.reference_file_path,params.clair,params.model,params.threshold)
 }
