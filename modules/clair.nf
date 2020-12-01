@@ -17,7 +17,7 @@ process clair {
     val(threshold)
 
     output:
-    tuple(file("${sampleName}_snp_and_indel.vcf.gz*"))
+    file("${sampleName}_snp_and_indel.vcf.gz*")
 
     script:
     """
