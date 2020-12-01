@@ -11,7 +11,7 @@ params.clair="/exports/igmm/eddie/tomlinson-CRC-promethion/analysis/clair/clair-
 
 bam_ch = Channel
             .fromFilePairs(params.bam) {file -> file.name.replaceAll(/.bam|.bai$/,'')}
-            .take(params.take)
+
 
 
 
