@@ -4,7 +4,6 @@ Call variants in parrallel using https://github.com/HKU-BAL/Clair
 process clair {
     tag "$bam"
     label 'high_memory'
-    publishDir "results/claircalls", mode: 'copy'
     conda '/exports/igmm/eddie/tomlinson-CRC-promethion/analysis/clair/clair-env'
     cpus 16
 
@@ -47,7 +46,7 @@ process concat {
   cpus 16
 
   input:
-  tuple(val(sampleID), path(vcfs))
+  tuple(val(sampleName), path(vcfs))
 
   output:
   path("${sampleName}_snp_and_indel.vcf.gz*")
