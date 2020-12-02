@@ -18,9 +18,9 @@ bam_ch = Channel
 log.info """\
          CLAIR - N F   P I P E L I N E
          ===================================
-         bam           : ${params.bam}
-         outdir          : ${params.outdir}
-         reference       : ${params.reference}
+         bam                       : ${params.bam}
+         outdir                    : ${params.outdir}
+         reference_file_path       : ${params.reference_file_path}
          """
          .stripIndent()
 
@@ -36,4 +36,5 @@ Channel
 
 workflow {
   clair(bam_ch,params.reference_file_path,params.clair,params.model,params.threshold)
+  concat(clair.out)
 }
