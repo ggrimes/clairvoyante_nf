@@ -26,6 +26,7 @@ log.info """\
 
 include {
   clair;
+  concat;
   } from './modules/clair.nf'
 
 
