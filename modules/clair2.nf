@@ -5,7 +5,7 @@ process clair {
     tag "$bam"
     label 'high_memory'
     conda '/exports/igmm/eddie/tomlinson-CRC-promethion/analysis/clair/clair-env'
-
+    cpus 16
 
     input:
     tuple(val(sampleName), file(bam))
@@ -27,7 +27,6 @@ process clair {
     --bam_fn "${sampleName}.bam" \
     --threshold ${threshold} \
     --sampleName "${sampleName}" \
-    --threads ${task.cpus} \
     --includingAllContigs \
     --output_prefix ${sampleName} > commands.sh
     grep python commands.sh > command.sh

@@ -41,7 +41,7 @@ workflow {
   clair(bam_ch,params.reference_file_path,params.clair,params.model,params.threshold)
 
   cmd=clair.out.splitText()
-
+  cmd.view()
   run_clair(cmd, bam_ch,params.reference_file_path,params.clair,params.model,params.threshold)
 
   combinedvcf=run_clair.out.groupTuple()
