@@ -27,15 +27,23 @@ log.info """\
 include {
   clair;
   concat;
-  } from './modules/clair.nf'
+  } from './modules/clair2.nf'
 
 
 Channel
   .fromFilePairs(params.bam) { file -> file.name.replaceAll(/.bam|.bai$/,'') }
-  .set{bam_ch}
+  .into{bam_ch,bam_ch2}
 
 
 workflow {
+
   clair(bam_ch,params.reference_file_path,params.clair,params.model,params.threshold)
-  concat(clair.out)
+
+  cmd=clair.out.splitText()
+
+  run_clair(cmd, bam_ch2,params.reference_file_path,params.clair,params.model,params.threshold)
+
+  combinedvcf=run_clair.out.groupTuple()
+
+  concat(combinedvcf)
 }
