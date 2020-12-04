@@ -15,10 +15,10 @@ process clair {
     val(threshold)
 
     output:
-    path("command.sh") 
+    path("command.sh")
+
     script:
     """
-    mkdir -p call/var
     # create command.sh for run jobs in parallel
     clair.py callVarBamParallel \
     --chkpnt_fn "${model}" \
@@ -48,7 +48,7 @@ process run_clair {
  """
  # disable GPU if you have one installed
  export CUDA_VISIBLE_DEVICES=""
- echo ${cmd.trim()}
+  ${cmd.trim()}
  """
 
 }
