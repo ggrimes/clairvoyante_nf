@@ -27,6 +27,7 @@ process clair {
     --bam_fn "${sampleName}.bam" \
     --threshold ${threshold} \
     --sampleName "${sampleName}" \
+    --includingAllContigs \
     --output_prefix ${sampleName} > command.sh
     """
 }
