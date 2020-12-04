@@ -27,6 +27,7 @@ process clair {
     --bam_fn "${sampleName}.bam" \
     --threshold ${threshold} \
     --sampleName "${sampleName}" \
+    --threads ${${task.cpus}} \
     --includingAllContigs \
     --output_prefix ${sampleName} > commands.sh
     grep python commands.sh > command.sh
@@ -34,7 +35,7 @@ process clair {
 }
 
 process run_clair {
-conda '/exports/igmm/eddie/tomlinson-CRC-promethion/analysis/clair/clair-env'
+ conda '/exports/igmm/eddie/tomlinson-CRC-promethion/analysis/clair/clair-env'
 
  input:
  val(cmd)
