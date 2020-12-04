@@ -27,7 +27,7 @@ process clair {
     --bam_fn "${sampleName}.bam" \
     --threshold ${threshold} \
     --sampleName "${sampleName}" \
-    --threads ${${task.cpus}} \
+    --threads ${task.cpus} \
     --includingAllContigs \
     --output_prefix ${sampleName} > commands.sh
     grep python commands.sh > command.sh
