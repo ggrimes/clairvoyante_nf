@@ -32,7 +32,7 @@ include {
 
 Channel
   .fromFilePairs(params.bam) { file -> file.name.replaceAll(/.bam|.bai$/,'') }
-  .into{bam_ch;bam_ch2}
+  .set{bam_ch;bam_ch2}
 
 
 workflow {
