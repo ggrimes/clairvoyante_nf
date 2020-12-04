@@ -28,7 +28,8 @@ process clair {
     --threshold ${threshold} \
     --sampleName "${sampleName}" \
     --includingAllContigs \
-    --output_prefix ${sampleName}|grep python > command.sh
+    --output_prefix ${sampleName} > commands.sh
+    grep python commands.sh > command.sh
     """
 }
 
