@@ -32,8 +32,6 @@ process clair {
     """
 }
 
-cmd_out.splitText().set{cmd}
-
 process run_clair {
 
  input:
