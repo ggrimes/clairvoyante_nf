@@ -26,6 +26,7 @@ log.info """\
 
 include {
   clair;
+  run_clair;
   concat;
   } from './modules/clair2.nf'
 
