@@ -15,8 +15,7 @@ process clair {
     val(threshold)
 
     output:
-    path("command.sh") into cmd_out
-
+    path("command.sh") 
     script:
     """
     mkdir -p call/var
